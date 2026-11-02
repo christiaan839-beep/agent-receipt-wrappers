@@ -1,0 +1,28 @@
+{
+  "name": "agent-receipt-wrappers",
+  "version": "0.1.0",
+  "description": "Wrap Anthropic, OpenAI, Google Gemini and Vercel AI SDK calls so each response gets a Guardian-checked, signable receipt. No SDK dependencies.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    "./anthropic": { "types": "./dist/anthropic.d.ts", "import": "./dist/anthropic.js" },
+    "./openai": { "types": "./dist/openai.d.ts", "import": "./dist/openai.js" },
+    "./google": { "types": "./dist/google.d.ts", "import": "./dist/google.js" },
+    "./ai-sdk": { "types": "./dist/ai-sdk.d.ts", "import": "./dist/ai-sdk.js" }
+  },
+  "files": ["dist", "README.md", "LICENSE-MIT", "LICENSE-APACHE"],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc -p tsconfig.test.json",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["ai", "agents", "receipts", "audit", "anthropic", "openai", "gemini", "ai-sdk"],
+  "author": "Christiaan de Wet (https://github.com/christiaan839-beep)",
+  "license": "MIT OR Apache-2.0",
+  "repository": { "type": "git", "url": "git+https://github.com/christiaan839-beep/agent-receipt-wrappers.git" },
+  "engines": { "node": ">=20" },
+  "devDependencies": { "@types/node": "^26.6.6", "typescript": "^7.0.2", "vitest": "^5.1.0" }
+}
